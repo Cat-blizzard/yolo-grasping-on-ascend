@@ -40,11 +40,14 @@ ROBOT_ARM_CONFIG = {
 }
 
 # ==================== 算法配置 ====================
-# 语音识别
+# 语音识别 - API密钥从环境变量读取
+# 设置方法:
+#   Linux/Mac: export XFYUN_APPID="your-appid"
+#   Windows: set XFYUN_APPID=your-appid
 ASR_CONFIG = {
-    "appid": "3cdb2c75",
-    "apikey": "52895af0e672d6d172d478de4e027b07",
-    "apisecret": "ZGRiNDAyMmVmYWQ0YjVhOTAyNDYzMzcw",
+    "appid": os.getenv("XFYUN_APPID", "YOUR_APPID_HERE"),
+    "apikey": os.getenv("XFYUN_API_KEY", "YOUR_API_KEY_HERE"),
+    "apisecret": os.getenv("XFYUN_API_SECRET", "YOUR_API_SECRET_HERE"),
     "max_duration": 10.0,        # 最大录音时长(秒)
     "interval": 0.04,            # 推流间隔(秒)
     "sample_rate": 16000,        # 采样率(Hz)
@@ -52,9 +55,12 @@ ASR_CONFIG = {
     "accent": "mandarin"         # 口音
 }
 
-# LLM配置
+# LLM配置 - API密钥从环境变量读取
+# 设置方法:
+#   Linux/Mac: export DOUBAO_API_KEY="your-api-key"
+#   Windows: set DOUBAO_API_KEY=your-api-key
 LLM_CONFIG = {
-    "api_key": "9b55f097-562a-44a5-9b35-6e4d6c00d4c8",
+    "api_key": os.getenv("DOUBAO_API_KEY", "YOUR_API_KEY_HERE"),
     "model": "doubao-1.5-pro-32k-250115",
     "system_prompt": (
         "你现在是一个助老用户命令判断助手。你会收到老人提出的问题,其中包含老人要寻找的物品名称。"

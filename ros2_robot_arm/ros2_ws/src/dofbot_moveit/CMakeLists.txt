@@ -49,10 +49,9 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-install(TARGETS ${library_name}
-  ARCHIVE DESTINATION lib
-  LIBRARY DESTINATION lib
-  RUNTIME DESTINATION bin)
+# Install the prebuilt library file
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/lib/libdofbot_kinemarics.so
+  DESTINATION lib)
 
 install(TARGETS dofbot_server kinematics_server
   DESTINATION lib/${PROJECT_NAME}

@@ -50,9 +50,16 @@ from mindyolo.models import create_model
 from mindyolo.utils.config import parse_args
 from mindyolo.utils.metrics import non_max_suppression, scale_coords, xyxy2xywh
 
-# 导入本地模块
-from mindyolo.demo.recognize_voice import asr_recognize
-from mindyolo.demo.LLM意图识别 import target_objects
+# 导入本地模块 - demo在mindyolo-master根目录
+import sys
+import os
+# 添加demo目录到Python路径
+demo_path = os.path.join(os.path.dirname(__file__), 'mindyolo-master', 'demo')
+if demo_path not in sys.path:
+    sys.path.insert(0, demo_path)
+
+from recognize_voice import asr_recognize
+from LLM意图识别 import target_objects
 
 # ROS2相关导入
 try:
@@ -493,20 +500,39 @@ class RobotArmController:
     
     def __init__(self):
         """初始化机械臂控制器"""
+        logger.info("🔧 正在初始化机械臂控制器...")
+        
         if not ROS2_AVAILABLE:
             logger.error("❌ ROS2不可用,机械臂控制器初始化失败")
+            logger.info("💡 请检查: pip3 install rclpy Arm_Lib")
+            self.node = None
+            self.client = None
+            self.arm = None
             return
         
-        # 检查ROS2是否已初始化(参考garbage_identify.py line 30)
-        if not rclpy.ok():
-            rclpy.init()
-            logger.info("🔧 ROS2初始化完成")
-        
-        self.node = rclpy.create_node("voice_robot_controller")
-        self.client = self.node.create_client(Kinemarics, "trial_service")
-        self.arm = Arm_Lib.Arm_Device()
-        
-        logger.info("✅ 机械臂控制器初始化完成")
+        try:
+            # 检查ROS2是否已初始化(参考garbage_identify.py line 30)
+            if not rclpy.ok():
+                rclpy.init()
+                logger.info("🔧 ROS2初始化完成")
+            
+            self.node = rclpy.create_node("voice_robot_controller")
+            logger.info("✅ ROS2节点创建成功")
+            
+            self.client = self.node.create_client(Kinemarics, "trial_service")
+            logger.info("✅ 逆运动学服务客户端创建成功")
+            
+            self.arm = Arm_Lib.Arm_Device()
+            logger.info("✅ 机械臂设备连接成功")
+            
+            logger.info("✅ 机械臂控制器初始化完成")
+        except Exception as e:
+            logger.error(f"❌ 机械臂初始化失败: {e}")
+            import traceback
+            traceback.print_exc()
+            self.node = None
+            self.client = None
+            self.arm = None
     
     def inverse_kinematics(self, x: float, y: float, z: float = 0.0) -> List[float]:
         """
@@ -518,40 +544,78 @@ class RobotArmController:
         Returns:
             关节角度列表 [j1, j2, j3, j4, j5]
         """
-        if not ROS2_AVAILABLE:
-            return [90, 90, 0, 0, 90]
+        if not ROS2_AVAILABLE or not self.client:
+            logger.warning("⚠️ ROS2不可用,返回默认关节角")
+            return None
         
-        self.client.wait_for_service(timeout_sec=2.0)
-        
-        request = Kinemarics.Request()
-        request.tar_x = x
-        request.tar_y = y
-        request.tar_z = z
-        request.kin_name = "ik"
-        
-        future = self.client.call_async(request)
-        rclpy.spin_until_future_complete(self.node, future)
-        
-        response = future.result()
-        if response:
-            joints = [
-                response.joint1,
-                response.joint2,
-                response.joint3,
-                response.joint4,
-                response.joint5
-            ]
+        try:
+            logger.info(f"🔧 [步骤6.1] 等待逆运动学服务 'trial_service'...")
+            logger.info(f"   目标坐标: x={x:.4f}, y={y:.4f}, z={z:.4f}")
             
-            # 角度调整(参考garbage_identify.py)
-            if joints[2] < 0:
-                joints[1] += joints[2] / 2
-                joints[3] += joints[2] * 3 / 4
-                joints[2] = 0
+            service_ready = self.client.wait_for_service(timeout_sec=5.0)
+            if not service_ready:
+                logger.error("❌ [失败] 逆运动学服务超时(5秒内未响应)")
+                logger.error("💡 调试步骤:")
+                logger.error("   1. 检查ROS2服务: ros2 service list | grep trial_service")
+                logger.error("   2. 检查ROS2环境: echo $ROS_DOMAIN_ID")
+                logger.error("   3. 重启服务: ros2 run dofbot_info kinemarics_server")
+                return None
             
-            logger.info(f"🤖 逆运动学解算: ({x:.3f}, {y:.3f}, {z:.3f}) → {joints}")
-            return joints
-        
-        return None
+            logger.info("✅ [步骤6.2] 逆运动学服务已就绪")
+            
+            request = Kinemarics.Request()
+            request.tar_x = x
+            request.tar_y = y
+            request.tar_z = z
+            request.kin_name = "ik"
+            
+            logger.info(f"📝 [步骤6.3] 发送逆运动学请求: ({x:.3f}, {y:.3f}, {z:.3f})")
+            logger.info(f"   等待服务响应(最多5秒)...")
+            
+            future = self.client.call_async(request)
+            rclpy.spin_until_future_complete(self.node, future, timeout_sec=5.0)
+            
+            if not future.done():
+                logger.error("❌ [步骤6.4] 服务调用超时(未在5秒内完成)")
+                logger.error("💡 可能原因:")
+                logger.error("   - 目标坐标超出机械臂工作空间")
+                logger.error("   - 逆运动学求解器卡死")
+                logger.error("   - ROS2网络通信异常")
+                return None
+            
+            logger.info("✅ [步骤6.4] 服务调用完成,获取响应...")
+            response = future.result()
+            
+            if response:
+                joints = [
+                    response.joint1,
+                    response.joint2,
+                    response.joint3,
+                    response.joint4,
+                    response.joint5
+                ]
+                
+                logger.info(f"📊 [步骤6.5] 原始关节角: {joints}")
+                
+                # 角度调整(参考garbage_identify.py)
+                if joints[2] < 0:
+                    logger.info(f"⚙️ 关节角调整: joint3={joints[2]} < 0, 应用补偿")
+                    joints[1] += joints[2] / 2
+                    joints[3] += joints[2] * 3 / 4
+                    joints[2] = 0
+                
+                logger.info(f"✅ [步骤6.6] 逆运动学解算成功: ({x:.3f}, {y:.3f}, {z:.3f}) → {joints}")
+                return joints
+            else:
+                logger.error("❌ [失败] 逆运动学服务返回空响应")
+                logger.error("💡 请检查ROS2服务实现是否正常")
+                return None
+        except Exception as e:
+            logger.error(f"❌ [异常] 逆运动学调用失败: {e}")
+            logger.error("💡 异常详情:")
+            import traceback
+            traceback.print_exc()
+            return None
     
     def grasp_and_place(self, joints: List[float], target_class: str, xy_init: List[int] = [90, 135]):
         """
@@ -566,55 +630,75 @@ class RobotArmController:
             logger.warning("⚠️ ROS2不可用,跳过机械臂动作")
             return
         
-        logger.info(f"🤖 开始执行抓取动作: {target_class}")
+        if not self.arm:
+            logger.error("❌ 机械臂设备未初始化,无法执行动作")
+            return
         
-        # 蜂鸣器提示
-        self.arm.Arm_Buzzer_On(1)
-        time.sleep(0.5)
+        logger.info(f"🤖 [步骤6.7] 开始执行抓取动作: {target_class}")
+        logger.info(f"   目标关节角: {joints}")
         
-        grap_joint = 130  # 夹爪闭合角度
+        try:
+            # 蜂鸣器提示
+            logger.info("🔔 [动作1] 蜂鸣器提示...")
+            self.arm.Arm_Buzzer_On(1)
+            time.sleep(0.5)
         
-        # 1. 移动到目标上方
-        joints_up = [joints[0], 80, 50, 50, 265, 30]
-        self.arm.Arm_serial_servo_write6_array(joints_up, 1000)
-        time.sleep(1)
-        
-        # 2. 松开夹爪
-        self.arm.Arm_serial_servo_write(6, 0, 500)
-        time.sleep(0.5)
-        
-        # 3. 移动到目标位置
-        joints_target = [joints[0], joints[1], joints[2], joints[3], 265, 30]
-        self.arm.Arm_serial_servo_write6_array(joints_target, 500)
-        time.sleep(0.5)
-        
-        # 4. 夹紧
-        self.arm.Arm_serial_servo_write(6, grap_joint, 500)
-        time.sleep(0.5)
-        
-        # 5. 抬起
-        self.arm.Arm_serial_servo_write6_array(joints_up, 1000)
-        time.sleep(1)
-        
-        # 6. 移动到分拣位置
-        if target_class in SORTING_POSITIONS:
-            sorting_joints = SORTING_POSITIONS[target_class] + [grap_joint]
-            logger.info(f"📦 移动到分拣位置: {target_class}")
-            self.arm.Arm_serial_servo_write6_array(sorting_joints, 1000)
+            grap_joint = 130  # 夹爪闭合角度
+            
+            # 1. 移动到目标上方
+            joints_up = [joints[0], 80, 50, 50, 265, 30]
+            logger.info(f"📍 [动作2] 移动到目标上方: {joints_up}")
+            self.arm.Arm_serial_servo_write6_array(joints_up, 1000)
             time.sleep(1)
             
-            # 7. 释放物体
-            self.arm.Arm_serial_servo_write(6, 30, 500)
+            # 2. 松开夹爪
+            logger.info("✋ [动作3] 松开夹爪...")
+            self.arm.Arm_serial_servo_write(6, 0, 500)
             time.sleep(0.5)
-        else:
-            logger.warning(f"⚠️ 未找到{target_class}的分拣位置,放回初始位置")
-        
-        # 8. 返回初始位置
-        joints_init = [xy_init[0], xy_init[1], 0, 0, 90, 30]
-        self.arm.Arm_serial_servo_write6_array(joints_init, 1000)
-        time.sleep(1)
-        
-        logger.info("✅ 抓取动作完成")
+            
+            # 3. 移动到目标位置
+            joints_target = [joints[0], joints[1], joints[2], joints[3], 265, 30]
+            logger.info(f"🎯 [动作4] 移动到抓取位置: {joints_target}")
+            self.arm.Arm_serial_servo_write6_array(joints_target, 500)
+            time.sleep(0.5)
+            
+            # 4. 夹紧
+            logger.info(f"🤏 [动作5] 夹爪闭合(角度={grap_joint})...")
+            self.arm.Arm_serial_servo_write(6, grap_joint, 500)
+            time.sleep(0.5)
+            
+            # 5. 抬起
+            logger.info("⬆️ [动作6] 抬起物体...")
+            self.arm.Arm_serial_servo_write6_array(joints_up, 1000)
+            time.sleep(1)
+            
+            # 6. 移动到分拣位置
+            if target_class in SORTING_POSITIONS:
+                sorting_joints = SORTING_POSITIONS[target_class] + [grap_joint]
+                logger.info(f"📦 [动作7] 移动到分拣位置: {target_class} → {sorting_joints}")
+                self.arm.Arm_serial_servo_write6_array(sorting_joints, 1000)
+                time.sleep(1)
+                
+                # 7. 释放物体
+                logger.info("🎁 [动作8] 释放物体...")
+                self.arm.Arm_serial_servo_write(6, 30, 500)
+                time.sleep(0.5)
+            else:
+                logger.warning(f"⚠️ 未找到{target_class}的分拣位置,放回初始位置")
+            
+            # 8. 返回初始位置
+            joints_init = [xy_init[0], xy_init[1], 0, 0, 90, 30]
+            logger.info(f"🔙 [动作9] 返回初始位置: {joints_init}")
+            self.arm.Arm_serial_servo_write6_array(joints_init, 1000)
+            time.sleep(1)
+            
+            logger.info("✅ [步骤6完成] 抓取动作执行成功")
+            
+        except Exception as e:
+            logger.error(f"❌ [机械臂动作异常] {e}")
+            import traceback
+            traceback.print_exc()
+            raise
 
 
 # ==================== 主系统 ====================
@@ -735,8 +819,12 @@ class VoiceGuidedRobotSystem:
             cx, cy = det["center"]
             cv2.circle(vis_img, (cx, cy), 5, (0, 0, 255), -1)
         
-        cv2.imshow("Detection Result", vis_img)
-        cv2.waitKey(2000)  # 显示2秒
+        # 保存检测结果图片(避免在无GUI环境显示)
+        output_path = "detection_result.jpg"
+        cv2.imwrite(output_path, vis_img)
+        logger.info(f"💾 检测结果已保存到: {output_path}")
+        # cv2.imshow("Detection Result", vis_img)  # 在无GUI环境下禁用
+        # cv2.waitKey(2000)
         
         # 4. 目标匹配
         logger.info("\n" + "="*60)
@@ -758,20 +846,43 @@ class VoiceGuidedRobotSystem:
         
         # 6. 逆运动学+执行
         logger.info("\n" + "="*60)
-        logger.info("🤖 步骤6: 机械臂执行")
+        logger.info("🤖 步骤6: 机械臂执行 (如果此处卡住,请查看下方详细日志)")
         logger.info("="*60)
         
         if self.robot:
+            logger.info(f"📍 目标坐标: ({robot_x:.4f}, {robot_y:.4f})")
+            logger.info("🔧 开始调用逆运动学求解(ROS2服务)...")
+            logger.info("💡 如果长时间无响应,请检查:")
+            logger.info("   1. ROS2服务是否运行: ros2 service list")
+            logger.info("   2. 机械臂串口连接: ls /dev/ttyUSB*")
+            logger.info("   3. 目标坐标是否在工作空间内")
+            logger.info("\n开始执行...\n")
+            
             joints = self.robot.inverse_kinematics(robot_x, robot_y, z=0.0)
             if joints:
+                logger.info(f"✅ 逆运动学求解成功: {joints}")
+                
                 # 传递target_class进行分拣
                 english_target = OBJECT_MAPPING.get(target_name, matched_target["class_name"])
-                self.robot.grasp_and_place(joints, target_class=english_target)
-                logger.info("✅ 任务完成!")
-                return True
+                logger.info(f"🎯 开始抓取: {target_name} ({english_target})")
+                
+                try:
+                    self.robot.grasp_and_place(joints, target_class=english_target)
+                    logger.info("✅ 任务完成!")
+                    return True
+                except Exception as e:
+                    logger.error(f"❌ 机械臂执行失败: {e}")
+                    import traceback
+                    traceback.print_exc()
+                    return False
+            else:
+                logger.error("❌ 逆运动学求解失败,关节角度为None")
+                logger.info(f"💡 提示: 目标坐标({robot_x:.4f}, {robot_y:.4f})可能超出机械臂工作空间")
+                return False
         else:
-            logger.warning("⚠️ 机械臂不可用,仅模拟坐标映射")
+            logger.warning("⚠️ 机械臂不可用 (ROS2未安装或初始化失败)")
             logger.info(f"📍 目标坐标: ({robot_x:.4f}, {robot_y:.4f})")
+            logger.info("💡 提示: 请检查ROS2环境和机械臂连接")
         
         return True
     
@@ -819,8 +930,8 @@ def main():
         config["offset_path"] = r"d:\robocode\ros2_robot_arm\ros2_ws\src\dofbot_garbage_yolov5\dofbot_garbage_yolov5\config\offset.txt"
     else:  # Linux/Ubuntu
         # Ubuntu环境 - 仅CPU
-        config["model_path_pt"] = "/home/user/robocode/mindyolo-master/yolov8s.pt"
-        config["offset_path"] = "/home/user/robocode/ros2_robot_arm/ros2_ws/src/dofbot_garbage_yolov5/dofbot_garbage_yolov5/config/offset.txt"
+        config["model_path_pt"] = "/home/HwHiAiUser/robocode_ld3/mindyolo-master/yolov8s.pt"
+        config["offset_path"] = "/home/HwHiAiUser/robocode_ld3/ros2_robot_arm/ros2_ws/src/dofbot_garbage_yolov5/dofbot_garbage_yolov5/config/offset.txt"
     
     logger.info("\n" + "="*70)
     logger.info("🎯 系统启动信息")

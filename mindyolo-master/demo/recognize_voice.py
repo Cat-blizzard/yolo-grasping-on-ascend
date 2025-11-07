@@ -167,21 +167,30 @@ def asr_recognize(
     max_duration: float = 10.0,
     interval_sec: float = 0.04,
     on_partial=None,
+    appid: str = None,
+    apikey: str = None,
+    apisecret: str = None,
 ) -> str:
     """
-    对外统一接口：启动一次语音识别并返回整句结果（str）。
-    - appid/apikey/apisecret: 科大讯飞控制台获取
-    - max_duration: 录音时长上限（秒）
-    - interval_sec: 推流分帧间隔（秒），需与类里保持一致
-    - on_partial: 可选的增量回调函数，形如 on_partial(text:str) -> None
+    对外统一接口:启动一次语音识别并返回整句结果(str)。
+    - appid/apikey/apisecret: 科大讯飞控制台获取(从环境变量或参数传入)
+    - max_duration: 录音时长上限(秒)
+    - interval_sec: 推流分帧间隔(秒),需与类里保持一致
+    - on_partial: 可选的增量回调函数,形如 on_partial(text:str) -> None
     """
+    # 从环境变量读取API密钥(避免硬编码泄露)
+    import os
+    _appid = appid or os.getenv('XFYUN_APPID', 'YOUR_APPID_HERE')
+    _apikey = apikey or os.getenv('XFYUN_API_KEY', 'YOUR_API_KEY_HERE')
+    _apisecret = apisecret or os.getenv('XFYUN_API_SECRET', 'YOUR_API_SECRET_HERE')
+    
     rec = ASRRecognizer(
-        appid='3cdb2c75',
-        apikey='52895af0e672d6d172d478de4e027b07',
-        apisecret='ZGRiNDAyMmVmYWQ0YjVhOTAyNDYzMzcw',
+        appid=_appid,
+        apikey=_apikey,
+        apisecret=_apisecret,
         on_result=on_partial,
         max_duration=max_duration,
         intervel=interval_sec,
     )
-    # 阻塞直至识别完成，返回整句文本
+    # 阻塞直至识别完成,返回整句文本
     return rec.recognize_once()

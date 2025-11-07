@@ -1,7 +1,11 @@
 import os
 from volcenginesdkarkruntime import Ark
 
-client = Ark(api_key='9b55f097-562a-44a5-9b35-6e4d6c00d4c8')
+# 从环境变量读取API密钥,避免硬编码泄露
+# 使用方法: 设置环境变量 DOUBAO_API_KEY
+# Linux/Mac: export DOUBAO_API_KEY="your-api-key"
+# Windows: set DOUBAO_API_KEY=your-api-key
+client = Ark(api_key=os.getenv('DOUBAO_API_KEY', 'YOUR_API_KEY_HERE'))
 
 def target_objects(text: str):
     """
