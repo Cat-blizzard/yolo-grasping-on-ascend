@@ -1,0 +1,41 @@
+[35m[1mConsolidate compiler generated dependencies of target dofbot_server[0m
+[100%] Built target dofbot_server
+-- Install configuration: ""
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/lib/dofbot_moveit/dofbot_server
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/launch
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/launch/kinematic_server.launch.py
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/launch/dofbot_moveit.launch.py
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/config
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/config/server_param.yaml
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/ament_index/resource_index/package_run_dependencies/dofbot_moveit
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/ament_index/resource_index/parent_prefix_path/dofbot_moveit
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/environment/ament_prefix_path.sh
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/environment/ament_prefix_path.dsv
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/environment/path.sh
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/environment/path.dsv
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/local_setup.bash
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/local_setup.sh
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/local_setup.zsh
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/local_setup.dsv
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/package.dsv
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/ament_index/resource_index/packages/dofbot_moveit
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/cmake/dofbot_moveitConfig.cmake
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/cmake/dofbot_moveitConfig-version.cmake
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/package.xml
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/launch
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/launch/kinematic_server.launch.py
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/launch/dofbot_moveit.launch.py
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/rviz
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/rviz/dofbot.rviz
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/rviz/urdf.rviz
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/urdf
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/urdf/dofbot.urdf
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/meshes
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/meshes/link4.STL
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/meshes/link1.STL
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/meshes/link2.STL
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/meshes/base_link.STL
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/meshes/link5.STL
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/meshes/link3.STL

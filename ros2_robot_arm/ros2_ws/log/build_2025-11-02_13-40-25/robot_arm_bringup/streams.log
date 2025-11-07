@@ -1,0 +1,36 @@
+[2.584s] Invoking command in '/root/ros2_robot_arm/ros2_ws/src/robot_arm_bringup': PYTHONPATH=/root/ros2_robot_arm/ros2_ws/build/robot_arm_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_robot_arm/ros2_ws/install/robot_arm_bringup/lib/python3.10/site-packages:${PYTHONPATH} _=/usr/bin/env /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robot_arm_bringup build --build-base /root/ros2_robot_arm/ros2_ws/build/robot_arm_bringup/build install --record /root/ros2_robot_arm/ros2_ws/build/robot_arm_bringup/install.log --single-version-externally-managed install_data
+[3.364s] running egg_info
+[3.366s] creating ../../build/robot_arm_bringup/robot_arm_bringup.egg-info
+[3.367s] writing ../../build/robot_arm_bringup/robot_arm_bringup.egg-info/PKG-INFO
+[3.367s] writing dependency_links to ../../build/robot_arm_bringup/robot_arm_bringup.egg-info/dependency_links.txt
+[3.368s] writing entry points to ../../build/robot_arm_bringup/robot_arm_bringup.egg-info/entry_points.txt
+[3.368s] writing requirements to ../../build/robot_arm_bringup/robot_arm_bringup.egg-info/requires.txt
+[3.368s] writing top-level names to ../../build/robot_arm_bringup/robot_arm_bringup.egg-info/top_level.txt
+[3.369s] writing manifest file '../../build/robot_arm_bringup/robot_arm_bringup.egg-info/SOURCES.txt'
+[3.373s] reading manifest file '../../build/robot_arm_bringup/robot_arm_bringup.egg-info/SOURCES.txt'
+[3.375s] writing manifest file '../../build/robot_arm_bringup/robot_arm_bringup.egg-info/SOURCES.txt'
+[3.375s] running build
+[3.376s] running build_py
+[3.376s] creating /root/ros2_robot_arm/ros2_ws/build/robot_arm_bringup/build
+[3.376s] creating /root/ros2_robot_arm/ros2_ws/build/robot_arm_bringup/build/lib
+[3.376s] creating /root/ros2_robot_arm/ros2_ws/build/robot_arm_bringup/build/lib/robot_arm_bringup
+[3.376s] copying robot_arm_bringup/__init__.py -> /root/ros2_robot_arm/ros2_ws/build/robot_arm_bringup/build/lib/robot_arm_bringup
+[3.376s] running install
+[3.377s] running install_lib
+[3.379s] creating /root/ros2_robot_arm/ros2_ws/install/robot_arm_bringup/lib/python3.10/site-packages/robot_arm_bringup
+[3.379s] copying /root/ros2_robot_arm/ros2_ws/build/robot_arm_bringup/build/lib/robot_arm_bringup/__init__.py -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_bringup/lib/python3.10/site-packages/robot_arm_bringup
+[3.380s] byte-compiling /root/ros2_robot_arm/ros2_ws/install/robot_arm_bringup/lib/python3.10/site-packages/robot_arm_bringup/__init__.py to __init__.cpython-310.pyc
+[3.381s] running install_data
+[3.381s] creating /root/ros2_robot_arm/ros2_ws/install/robot_arm_bringup/share/ament_index
+[3.381s] creating /root/ros2_robot_arm/ros2_ws/install/robot_arm_bringup/share/ament_index/resource_index
+[3.382s] creating /root/ros2_robot_arm/ros2_ws/install/robot_arm_bringup/share/ament_index/resource_index/packages
+[3.382s] copying resource/robot_arm_bringup -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_bringup/share/ament_index/resource_index/packages
+[3.382s] copying package.xml -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_bringup/share/robot_arm_bringup
+[3.382s] creating /root/ros2_robot_arm/ros2_ws/install/robot_arm_bringup/share/robot_arm_bringup/launch
+[3.382s] copying launch/color_stacking_bringup.launch.py -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_bringup/share/robot_arm_bringup/launch
+[3.383s] copying launch/block_cls_bringup.launch.py -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_bringup/share/robot_arm_bringup/launch
+[3.383s] running install_egg_info
+[3.388s] Copying ../../build/robot_arm_bringup/robot_arm_bringup.egg-info to /root/ros2_robot_arm/ros2_ws/install/robot_arm_bringup/lib/python3.10/site-packages/robot_arm_bringup-0.0.0-py3.10.egg-info
+[3.390s] running install_scripts
+[3.447s] writing list of installed files to '/root/ros2_robot_arm/ros2_ws/build/robot_arm_bringup/install.log'
+[3.559s] Invoked command in '/root/ros2_robot_arm/ros2_ws/src/robot_arm_bringup' returned '0': PYTHONPATH=/root/ros2_robot_arm/ros2_ws/build/robot_arm_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_robot_arm/ros2_ws/install/robot_arm_bringup/lib/python3.10/site-packages:${PYTHONPATH} _=/usr/bin/env /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robot_arm_bringup build --build-base /root/ros2_robot_arm/ros2_ws/build/robot_arm_bringup/build install --record /root/ros2_robot_arm/ros2_ws/build/robot_arm_bringup/install.log --single-version-externally-managed install_data

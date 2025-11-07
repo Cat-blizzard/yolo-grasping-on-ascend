@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-cf54b9203e1e4d8a23a1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "dofbot_info__py",
+					"jsonFile" : "directory-dofbot_info__py-f2e6e6914fc0423da7ee.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/root/ros2_robot_arm/ros2_ws/build/dofbot_info/dofbot_info__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "dofbot_info",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_dofbot_info_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_dofbot_info_egg-8b2a37ca5a0b470bb575.json",
+					"name" : "ament_cmake_python_build_dofbot_info_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_dofbot_info::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_dofbot_info-27825a8067265efc1425.json",
+					"name" : "ament_cmake_python_copy_dofbot_info",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dofbot_info::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dofbot_info-944a0a545abe9ab7d495.json",
+					"name" : "dofbot_info",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dofbot_info__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dofbot_info__cpp-a74152a678fc8743c942.json",
+					"name" : "dofbot_info__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "dofbot_info__py::@07aea31bca0acf5cdce5",
+					"jsonFile" : "target-dofbot_info__py-85488d42e5fc1c60d17e.json",
+					"name" : "dofbot_info__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dofbot_info__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dofbot_info__rosidl_generator_c-9793032089f87bf6f518.json",
+					"name" : "dofbot_info__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dofbot_info__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dofbot_info__rosidl_generator_py-624f72f7f7b61b51d874.json",
+					"name" : "dofbot_info__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dofbot_info__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dofbot_info__rosidl_typesupport_c-79e42ad28bce5c0cfe39.json",
+					"name" : "dofbot_info__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dofbot_info__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dofbot_info__rosidl_typesupport_c__pyext-ebce7cf1addac337ece1.json",
+					"name" : "dofbot_info__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dofbot_info__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dofbot_info__rosidl_typesupport_cpp-ea730b3e01a26ae228b0.json",
+					"name" : "dofbot_info__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dofbot_info__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dofbot_info__rosidl_typesupport_fastrtps_c-2a25ed9947cb2c553d1a.json",
+					"name" : "dofbot_info__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dofbot_info__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dofbot_info__rosidl_typesupport_fastrtps_c__pyext-21503a1e470a7d569d85.json",
+					"name" : "dofbot_info__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dofbot_info__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dofbot_info__rosidl_typesupport_fastrtps_cpp-9ffe055abe52949fd5b0.json",
+					"name" : "dofbot_info__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dofbot_info__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dofbot_info__rosidl_typesupport_introspection_c-ec75d02cc12dc591fdd8.json",
+					"name" : "dofbot_info__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dofbot_info__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dofbot_info__rosidl_typesupport_introspection_c__pyext-61b400cf87d31c421c8e.json",
+					"name" : "dofbot_info__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dofbot_info__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dofbot_info__rosidl_typesupport_introspection_cpp-b10559184e3c28d1ce87.json",
+					"name" : "dofbot_info__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dofbot_info_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dofbot_info_uninstall-8c9289abb1ec958ba723.json",
+					"name" : "dofbot_info_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-a27d1288b5d7081e977d.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/root/ros2_robot_arm/ros2_ws/build/dofbot_info",
+		"source" : "/root/ros2_robot_arm/ros2_ws/src/dofbot_info"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

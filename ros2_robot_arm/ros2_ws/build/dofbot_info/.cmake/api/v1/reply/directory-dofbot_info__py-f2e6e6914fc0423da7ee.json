@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "dofbot_info__py",
+		"source" : "/root/ros2_robot_arm/ros2_ws/build/dofbot_info/dofbot_info__py"
+	}
+}

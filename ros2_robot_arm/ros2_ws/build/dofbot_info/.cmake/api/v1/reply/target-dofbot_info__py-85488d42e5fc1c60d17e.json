@@ -1,0 +1,79 @@
+{
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target"
+		],
+		"files" : 
+		[
+			"/root/ros2_robot_arm/ros2_ws/build/dofbot_info/dofbot_info__py/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 34,
+				"parent" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "dofbot_info::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "dofbot_info__py::@07aea31bca0acf5cdce5",
+	"name" : "dofbot_info__py",
+	"paths" : 
+	{
+		"build" : "dofbot_info__py",
+		"source" : "/root/ros2_robot_arm/ros2_ws/build/dofbot_info/dofbot_info__py"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"isGenerated" : true,
+			"path" : "/root/ros2_robot_arm/ros2_ws/build/dofbot_info/dofbot_info__py/CMakeFiles/dofbot_info__py",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/root/ros2_robot_arm/ros2_ws/build/dofbot_info/dofbot_info__py/CMakeFiles/dofbot_info__py.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/root/ros2_robot_arm/ros2_ws/build/dofbot_info/rosidl_generator_py/dofbot_info/_dofbot_info_s.ep.rosidl_typesupport_fastrtps_c.c.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

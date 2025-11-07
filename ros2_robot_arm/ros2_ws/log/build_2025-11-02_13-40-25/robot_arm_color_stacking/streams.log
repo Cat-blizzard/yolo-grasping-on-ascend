@@ -1,0 +1,64 @@
+[2.542s] Invoking command in '/root/ros2_robot_arm/ros2_ws/src/robot_arm_color_stacking': PYTHONPATH=/root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages:${PYTHONPATH} _=/usr/bin/env /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robot_arm_color_stacking build --build-base /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build install --record /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/install.log --single-version-externally-managed install_data
+[3.189s] running egg_info
+[3.192s] creating ../../build/robot_arm_color_stacking/robot_arm_color_stacking.egg-info
+[3.192s] writing ../../build/robot_arm_color_stacking/robot_arm_color_stacking.egg-info/PKG-INFO
+[3.193s] writing dependency_links to ../../build/robot_arm_color_stacking/robot_arm_color_stacking.egg-info/dependency_links.txt
+[3.193s] writing entry points to ../../build/robot_arm_color_stacking/robot_arm_color_stacking.egg-info/entry_points.txt
+[3.194s] writing requirements to ../../build/robot_arm_color_stacking/robot_arm_color_stacking.egg-info/requires.txt
+[3.194s] writing top-level names to ../../build/robot_arm_color_stacking/robot_arm_color_stacking.egg-info/top_level.txt
+[3.195s] writing manifest file '../../build/robot_arm_color_stacking/robot_arm_color_stacking.egg-info/SOURCES.txt'
+[3.198s] package init file 'robot_arm_color_stacking/utils/__init__.py' not found (or not a regular file)
+[3.200s] reading manifest file '../../build/robot_arm_color_stacking/robot_arm_color_stacking.egg-info/SOURCES.txt'
+[3.203s] writing manifest file '../../build/robot_arm_color_stacking/robot_arm_color_stacking.egg-info/SOURCES.txt'
+[3.204s] running build
+[3.204s] running build_py
+[3.204s] creating /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build
+[3.205s] creating /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib
+[3.205s] creating /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking
+[3.205s] copying robot_arm_color_stacking/main.py -> /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking
+[3.205s] copying robot_arm_color_stacking/__init__.py -> /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking
+[3.206s] creating /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking/utils
+[3.206s] copying robot_arm_color_stacking/utils/stacking_grap.py -> /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking/utils
+[3.206s] copying robot_arm_color_stacking/utils/npu_utils.py -> /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking/utils
+[3.206s] copying robot_arm_color_stacking/utils/stacking_target.py -> /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking/utils
+[3.207s] copying robot_arm_color_stacking/utils/det_utils.py -> /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking/utils
+[3.207s] copying robot_arm_color_stacking/utils/dofbot_config.py -> /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking/utils
+[3.208s] running install
+[3.209s] running install_lib
+[3.211s] creating /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking
+[3.217s] copying /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking/main.py -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking
+[3.217s] creating /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking/utils
+[3.217s] copying /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking/utils/stacking_grap.py -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking/utils
+[3.217s] copying /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking/utils/npu_utils.py -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking/utils
+[3.218s] copying /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking/utils/stacking_target.py -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking/utils
+[3.218s] copying /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking/utils/det_utils.py -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking/utils
+[3.218s] copying /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking/utils/dofbot_config.py -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking/utils
+[3.218s] copying /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build/lib/robot_arm_color_stacking/__init__.py -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking
+[3.218s] byte-compiling /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking/main.py to main.cpython-310.pyc
+[3.219s] byte-compiling /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking/utils/stacking_grap.py to stacking_grap.cpython-310.pyc
+[3.220s] byte-compiling /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking/utils/npu_utils.py to npu_utils.cpython-310.pyc
+[3.222s] byte-compiling /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking/utils/stacking_target.py to stacking_target.cpython-310.pyc
+[3.226s] byte-compiling /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking/utils/det_utils.py to det_utils.cpython-310.pyc
+[3.230s] byte-compiling /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking/utils/dofbot_config.py to dofbot_config.cpython-310.pyc
+[3.233s] byte-compiling /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking/__init__.py to __init__.cpython-310.pyc
+[3.233s] running install_data
+[3.233s] creating /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/share/ament_index
+[3.234s] creating /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/share/ament_index/resource_index
+[3.234s] creating /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/share/ament_index/resource_index/packages
+[3.234s] copying resource/robot_arm_color_stacking -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/share/ament_index/resource_index/packages
+[3.234s] copying package.xml -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/share/robot_arm_color_stacking
+[3.234s] creating /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/share/robot_arm_color_stacking/config
+[3.235s] copying robot_arm_color_stacking/config/dp.bin -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/share/robot_arm_color_stacking/config
+[3.235s] copying robot_arm_color_stacking/config/XYT_config.txt -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/share/robot_arm_color_stacking/config
+[3.235s] copying robot_arm_color_stacking/config/data_collect_idx.txt -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/share/robot_arm_color_stacking/config
+[3.236s] copying robot_arm_color_stacking/config/color_stacking.txt -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/share/robot_arm_color_stacking/config
+[3.236s] copying robot_arm_color_stacking/config/offset.txt -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/share/robot_arm_color_stacking/config
+[3.236s] creating /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/share/robot_arm_color_stacking/model
+[3.236s] copying robot_arm_color_stacking/model/coco_names.txt -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/share/robot_arm_color_stacking/model
+[3.237s] copying robot_arm_color_stacking/model/yolov5s_bs1.om -> /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/share/robot_arm_color_stacking/model
+[3.263s] running install_egg_info
+[3.267s] Copying ../../build/robot_arm_color_stacking/robot_arm_color_stacking.egg-info to /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages/robot_arm_color_stacking-0.0.0-py3.10.egg-info
+[3.269s] running install_scripts
+[3.324s] Installing color_stacking script to /root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/robot_arm_color_stacking
+[3.325s] writing list of installed files to '/root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/install.log'
+[3.447s] Invoked command in '/root/ros2_robot_arm/ros2_ws/src/robot_arm_color_stacking' returned '0': PYTHONPATH=/root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_robot_arm/ros2_ws/install/robot_arm_color_stacking/lib/python3.10/site-packages:${PYTHONPATH} _=/usr/bin/env /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robot_arm_color_stacking build --build-base /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/build install --record /root/ros2_robot_arm/ros2_ws/build/robot_arm_color_stacking/install.log --single-version-externally-managed install_data

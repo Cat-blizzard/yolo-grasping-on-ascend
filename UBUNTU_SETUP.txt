@@ -1,0 +1,315 @@
+==========================================================================
+    Ubuntu环境部署与运行指南 - 4类物品分拣系统 (CPU模式)
+==========================================================================
+
+【系统说明】
+本系统已修改为:
+1. 支持CPU运行(无需NPU/GPU)
+2. 目标物品: 苹果、橘子、杯子、瓶子
+3. 实现4类物品自动分拣
+4. 兼容Ubuntu系统
+
+==========================================================================
+【依赖安装】
+==========================================================================
+
+1. Python环境 (推荐Python 3.8+)
+```bash
+sudo apt update
+sudo apt install python3 python3-pip
+```
+
+2. 核心依赖
+```bash
+# 安装PyTorch (CPU版本)
+pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+
+# 安装Ultralytics YOLOv8
+pip3 install ultralytics
+
+# 安装OpenCV和其他依赖
+pip3 install opencv-python numpy
+
+# (可选) 如果需要语音功能
+pip3 install pyaudio websocket-client
+
+# (可选) 如果需要ROS2机械臂控制
+sudo apt install ros-humble-desktop-full
+```
+
+3. 验证安装
+```bash
+python3 -c "import torch; print('PyTorch:', torch.__version__)"
+python3 -c "import ultralytics; print('Ultralytics安装成功')"
+python3 -c "import cv2; print('OpenCV:', cv2.__version__)"
+```
+
+==========================================================================
+【文件配置】
+==========================================================================
+
+1. 修改offset.txt路径 (在voice_guided_robot_system.py中)
+
+找到main()函数,修改offset_path:
+```python
+config["offset_path"] = "/home/你的用户名/robocode/ros2_robot_arm/ros2_ws/src/dofbot_garbage_yolov5/dofbot_garbage_yolov5/config/offset.txt"
+```
+
+2. 摄像头权限
+```bash
+# 检测摄像头
+ls /dev/video*
+
+# 添加摄像头访问权限
+sudo usermod -aG video $USER
+# 重新登录生效
+```
+
+3. 文件权限
+```bash
+cd ~/robocode
+chmod +x run_ubuntu.sh
+```
+
+==========================================================================
+【运行方式】
+==========================================================================
+
+方式1: 使用启动脚本 (推荐)
+```bash
+cd ~/robocode
+./run_ubuntu.sh
+```
+
+方式2: 直接运行Python
+```bash
+# 仅视觉检测 (无语音/LLM,推荐测试)
+python3 voice_guided_robot_system.py --mode vision_only
+
+# 完整系统 (需要语音+LLM)
+python3 voice_guided_robot_system.py --mode once
+
+# 禁用语音但使用LLM
+python3 voice_guided_robot_system.py --mode once --no-voice
+
+# 禁用LLM但使用语音
+python3 voice_guided_robot_system.py --mode once --no-llm
+```
+
+==========================================================================
+【分拣位置配置】
+==========================================================================
+
+在voice_guided_robot_system.py中定义了4个分拣位置:
+
+```python
+SORTING_POSITIONS = {
+    "apple": [45, 50, 20, 60, 265],    # 苹果 - 位置1(左前)
+    "orange": [27, 75, 0, 50, 265],    # 橘子 - 位置2(左后)
+    "cup": [147, 75, 0, 50, 265],      # 杯子 - 位置3(右后)
+    "bottle": [133, 50, 20, 60, 265]   # 瓶子 - 位置4(右前)
+}
+```
+
+根据实际机械臂标定结果,调整这些关节角度值。
+
+==========================================================================
+【工作流程】
+==========================================================================
+
+模式1: 仅视觉检测 (推荐测试)
+--------------------------------------
+1. 启动摄像头
+2. YOLOv8检测4类物品
+3. 显示检测结果(类别/置信度/位置)
+4. 无需语音和机械臂
+
+执行流程:
+[摄像头] → [YOLOv8检测] → [显示结果]
+
+模式2: 完整系统 (需要硬件)
+--------------------------------------
+1. 语音输入: "帮我拿苹果"
+2. LLM提取: "苹果"
+3. 摄像头采集图像
+4. YOLOv8检测所有物品
+5. 匹配目标: "苹果" → "apple"
+6. 坐标映射: 像素坐标 → 机械臂坐标
+7. 逆运动学: 计算关节角度
+8. 机械臂抓取
+9. 分拣到位置1(左前)
+
+执行流程:
+[语音] → [LLM] → [视觉] → [匹配] → [映射] → [IK] → [抓取] → [分拣]
+
+==========================================================================
+【测试步骤】
+==========================================================================
+
+第1步: 测试YOLOv8检测
+```bash
+python3 voice_guided_robot_system.py --mode vision_only
+```
+预期结果:
+- 自动下载YOLOv8s.pt模型(~22MB)
+- 打开摄像头
+- 实时检测并显示结果
+- 按Ctrl+C退出
+
+第2步: 测试物品识别
+准备测试物品:
+- 苹果 (apple)
+- 橘子/橙子 (orange)
+- 杯子 (cup)
+- 瓶子 (bottle)
+
+放置在摄像头前,观察检测结果。
+
+第3步: 测试分拣逻辑(需要ROS2+机械臂)
+```bash
+# 确保ROS2服务已启动
+ros2 service list | grep trial_service
+
+# 运行完整系统
+python3 voice_guided_robot_system.py --mode once
+```
+
+==========================================================================
+【性能优化】
+==========================================================================
+
+1. CPU推理加速
+```python
+# 在VisionPerception初始化中
+# YOLOv8会自动使用可用的CPU优化(BLAS/MKL)
+```
+
+2. 降低分辨率(提升速度)
+```python
+# 修改VisionPerception的img_size
+img_size = 416  # 从640降至416可提升2倍速度
+```
+
+3. 调整置信度阈值
+```python
+self.conf_thres = 0.3  # 降低阈值提高召回率
+```
+
+==========================================================================
+【常见问题】
+==========================================================================
+
+Q1: ImportError: libGL.so.1: cannot open shared object file
+A: 安装OpenGL库
+```bash
+sudo apt install libgl1-mesa-glx
+```
+
+Q2: 摄像头无法打开
+A: 检查权限和设备
+```bash
+ls -l /dev/video0
+sudo chmod 666 /dev/video0
+```
+
+Q3: YOLOv8模型下载失败
+A: 手动下载并放置
+```bash
+wget https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8s.pt
+mv yolov8s.pt ~/.cache/torch/hub/checkpoints/
+```
+
+Q4: CPU推理太慢
+A: 
+- 降低图像分辨率(416x416)
+- 使用YOLOv8n(更小更快的模型)
+```python
+self.model = YOLO('yolov8n.pt')  # nano版本
+```
+
+Q5: 检测不到物品
+A:
+- 检查光照条件
+- 降低置信度阈值(0.3)
+- 确认物品在COCO数据集中
+
+==========================================================================
+【与Windows版本的差异】
+==========================================================================
+
+| 特性 | Windows版本 | Ubuntu版本 |
+|------|-------------|------------|
+| 推理设备 | 昇腾310B NPU | CPU |
+| 深度学习框架 | MindSpore | PyTorch |
+| 模型格式 | .mindir | .pt |
+| 推理速度 | ~30ms | ~100-200ms |
+| 安装复杂度 | 高(需NPU驱动) | 低(纯CPU) |
+| 目标物品 | COCO 80类 | 4类(苹果/橘子/杯子/瓶子) |
+| 分拣功能 | 垃圾分类 | 物品分拣 |
+
+==========================================================================
+【ROS2集成】(可选)
+==========================================================================
+
+如果需要机械臂控制,安装ROS2:
+
+1. 安装ROS2 Humble
+```bash
+# 按照官方教程安装
+# https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html
+```
+
+2. 构建工作空间
+```bash
+cd ~/robocode/ros2_robot_arm/ros2_ws
+colcon build
+source install/setup.bash
+```
+
+3. 启动逆运动学服务
+```bash
+ros2 run dofbot_info kinematics_server
+```
+
+4. 测试服务
+```bash
+ros2 service list | grep trial_service
+```
+
+==========================================================================
+【文件清单】
+==========================================================================
+
+必需文件:
+- voice_guided_robot_system.py     主程序
+- run_ubuntu.sh                    启动脚本
+
+可选文件(如需语音/LLM):
+- mindyolo-master/demo/recognize_voice.py
+- mindyolo-master/demo/LLM意图识别.py
+
+配置文件:
+- offset.txt                       坐标偏移参数
+- dp.bin                          透视变换参数(可选)
+
+==========================================================================
+【技术支持】
+==========================================================================
+
+日志查看:
+```bash
+# 运行时会输出详细日志
+# 如需保存日志
+python3 voice_guided_robot_system.py --mode vision_only 2>&1 | tee log.txt
+```
+
+调试模式:
+在代码中设置:
+```python
+logging.basicConfig(level=logging.DEBUG)
+```
+
+==========================================================================
+更新日期: 2025-11-06
+版本: v2.0 (Ubuntu CPU版)
+==========================================================================

@@ -1,0 +1,6 @@
+{
+  "package_name": "dofbot_info",
+  "non_idl_tuples": [
+    "/root/ros2_robot_arm/ros2_ws/src/dofbot_info:srv/Kinemarics.srv"
+  ]
+}

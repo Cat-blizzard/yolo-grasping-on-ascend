@@ -1,0 +1,3 @@
+[console_scripts]
+block_cls = dofbot_garbage_yolov5.main:main
+

@@ -1,0 +1,6 @@
+source;share/dofbot_garbage_yolov5/hook/pythonpath.ps1
+source;share/dofbot_garbage_yolov5/hook/pythonpath.dsv
+source;share/dofbot_garbage_yolov5/hook/pythonpath.sh
+source;share/dofbot_garbage_yolov5/hook/ament_prefix_path.ps1
+source;share/dofbot_garbage_yolov5/hook/ament_prefix_path.dsv
+source;share/dofbot_garbage_yolov5/hook/ament_prefix_path.sh

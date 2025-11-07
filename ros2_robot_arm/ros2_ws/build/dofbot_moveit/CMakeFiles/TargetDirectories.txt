@@ -1,0 +1,10 @@
+/root/ros2_robot_arm/ros2_ws/build/dofbot_moveit/CMakeFiles/uninstall.dir
+/root/ros2_robot_arm/ros2_ws/build/dofbot_moveit/CMakeFiles/dofbot_moveit_uninstall.dir
+/root/ros2_robot_arm/ros2_ws/build/dofbot_moveit/CMakeFiles/dofbot_server.dir
+/root/ros2_robot_arm/ros2_ws/build/dofbot_moveit/CMakeFiles/test.dir
+/root/ros2_robot_arm/ros2_ws/build/dofbot_moveit/CMakeFiles/edit_cache.dir
+/root/ros2_robot_arm/ros2_ws/build/dofbot_moveit/CMakeFiles/rebuild_cache.dir
+/root/ros2_robot_arm/ros2_ws/build/dofbot_moveit/CMakeFiles/list_install_components.dir
+/root/ros2_robot_arm/ros2_ws/build/dofbot_moveit/CMakeFiles/install.dir
+/root/ros2_robot_arm/ros2_ws/build/dofbot_moveit/CMakeFiles/install/local.dir
+/root/ros2_robot_arm/ros2_ws/build/dofbot_moveit/CMakeFiles/install/strip.dir

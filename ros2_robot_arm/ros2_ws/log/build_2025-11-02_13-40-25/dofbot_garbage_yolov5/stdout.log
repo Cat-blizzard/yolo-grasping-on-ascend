@@ -1,0 +1,60 @@
+running egg_info
+creating ../../build/dofbot_garbage_yolov5/dofbot_garbage_yolov5.egg-info
+writing ../../build/dofbot_garbage_yolov5/dofbot_garbage_yolov5.egg-info/PKG-INFO
+writing dependency_links to ../../build/dofbot_garbage_yolov5/dofbot_garbage_yolov5.egg-info/dependency_links.txt
+writing entry points to ../../build/dofbot_garbage_yolov5/dofbot_garbage_yolov5.egg-info/entry_points.txt
+writing requirements to ../../build/dofbot_garbage_yolov5/dofbot_garbage_yolov5.egg-info/requires.txt
+writing top-level names to ../../build/dofbot_garbage_yolov5/dofbot_garbage_yolov5.egg-info/top_level.txt
+writing manifest file '../../build/dofbot_garbage_yolov5/dofbot_garbage_yolov5.egg-info/SOURCES.txt'
+reading manifest file '../../build/dofbot_garbage_yolov5/dofbot_garbage_yolov5.egg-info/SOURCES.txt'
+writing manifest file '../../build/dofbot_garbage_yolov5/dofbot_garbage_yolov5.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build
+creating /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib
+creating /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5
+copying dofbot_garbage_yolov5/main.py -> /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5
+copying dofbot_garbage_yolov5/__init__.py -> /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5
+creating /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5/utils
+copying dofbot_garbage_yolov5/utils/npu_utils.py -> /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5/utils
+copying dofbot_garbage_yolov5/utils/det_utils.py -> /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5/utils
+copying dofbot_garbage_yolov5/utils/garbage_grap.py -> /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5/utils
+copying dofbot_garbage_yolov5/utils/garbage_identify.py -> /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5/utils
+copying dofbot_garbage_yolov5/utils/dofbot_config.py -> /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5/utils
+running install
+running install_lib
+creating /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5
+copying /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5/main.py -> /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5
+creating /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5/utils
+copying /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5/utils/npu_utils.py -> /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5/utils
+copying /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5/utils/det_utils.py -> /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5/utils
+copying /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5/utils/garbage_grap.py -> /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5/utils
+copying /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5/utils/garbage_identify.py -> /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5/utils
+copying /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5/utils/dofbot_config.py -> /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5/utils
+copying /root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/build/lib/dofbot_garbage_yolov5/__init__.py -> /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5
+byte-compiling /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5/main.py to main.cpython-310.pyc
+byte-compiling /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5/utils/npu_utils.py to npu_utils.cpython-310.pyc
+byte-compiling /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5/utils/det_utils.py to det_utils.cpython-310.pyc
+byte-compiling /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5/utils/garbage_grap.py to garbage_grap.cpython-310.pyc
+byte-compiling /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5/utils/garbage_identify.py to garbage_identify.cpython-310.pyc
+byte-compiling /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5/utils/dofbot_config.py to dofbot_config.cpython-310.pyc
+byte-compiling /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/share/ament_index
+creating /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/share/ament_index/resource_index
+creating /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/share/ament_index/resource_index/packages
+copying resource/dofbot_garbage_yolov5 -> /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/share/ament_index/resource_index/packages
+copying package.xml -> /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/share/dofbot_garbage_yolov5
+creating /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/share/dofbot_garbage_yolov5/config
+copying dofbot_garbage_yolov5/config/dp.bin -> /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/share/dofbot_garbage_yolov5/config
+copying dofbot_garbage_yolov5/config/XYT_config.txt -> /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/share/dofbot_garbage_yolov5/config
+copying dofbot_garbage_yolov5/config/data_collect_idx.txt -> /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/share/dofbot_garbage_yolov5/config
+copying dofbot_garbage_yolov5/config/offset.txt -> /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/share/dofbot_garbage_yolov5/config
+creating /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/share/dofbot_garbage_yolov5/model
+copying dofbot_garbage_yolov5/model/coco_names.txt -> /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/share/dofbot_garbage_yolov5/model
+copying dofbot_garbage_yolov5/model/yolov5s_bs1.om -> /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/share/dofbot_garbage_yolov5/model
+running install_egg_info
+Copying ../../build/dofbot_garbage_yolov5/dofbot_garbage_yolov5.egg-info to /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/python3.10/site-packages/dofbot_garbage_yolov5-0.0.0-py3.10.egg-info
+running install_scripts
+Installing block_cls script to /root/ros2_robot_arm/ros2_ws/install/dofbot_garbage_yolov5/lib/dofbot_garbage_yolov5
+writing list of installed files to '/root/ros2_robot_arm/ros2_ws/build/dofbot_garbage_yolov5/install.log'

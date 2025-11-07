@@ -1,0 +1,3 @@
+[console_scripts]
+color_stacking = robot_arm_color_stacking.main:main
+

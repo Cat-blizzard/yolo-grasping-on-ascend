@@ -1,0 +1,61 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from dofbot_info/srv/Kinemarics.srv
+// generated code does not contain a copyright notice
+
+
+module dofbot_info {
+  module srv {
+    struct Kinemarics_Request {
+      double tar_x;
+
+      double tar_y;
+
+      double tar_z;
+
+      double roll;
+
+      double pitch;
+
+      double yaw;
+
+      double cur_joint1;
+
+      double cur_joint2;
+
+      double cur_joint3;
+
+      double cur_joint4;
+
+      double cur_joint5;
+
+      double cur_joint6;
+
+      string kin_name;
+    };
+    struct Kinemarics_Response {
+      double joint1;
+
+      double joint2;
+
+      double joint3;
+
+      double joint4;
+
+      double joint5;
+
+      double joint6;
+
+      double x;
+
+      double y;
+
+      double z;
+
+      double roll;
+
+      double pitch;
+
+      double yaw;
+    };
+  };
+};

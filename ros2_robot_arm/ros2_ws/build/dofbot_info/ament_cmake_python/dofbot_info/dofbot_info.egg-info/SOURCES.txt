@@ -1,0 +1,8 @@
+setup.py
+dofbot_info/__init__.py
+dofbot_info.egg-info/PKG-INFO
+dofbot_info.egg-info/SOURCES.txt
+dofbot_info.egg-info/dependency_links.txt
+dofbot_info.egg-info/top_level.txt
+dofbot_info/srv/__init__.py
+dofbot_info/srv/_kinemarics.py

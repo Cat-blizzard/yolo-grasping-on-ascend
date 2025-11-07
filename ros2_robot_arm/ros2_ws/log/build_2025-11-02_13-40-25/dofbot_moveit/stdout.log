@@ -1,0 +1,91 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /opt/ros/humble/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found kdl_parser: 2.6.4 (/opt/ros/humble/share/kdl_parser/cmake)
+-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+-- Found Eigen3: TRUE (found version "3.4.0") 
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found dofbot_info: 0.0.0 (/root/ros2_robot_arm/ros2_ws/install/dofbot_info/share/dofbot_info/cmake)
+-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: /root/ros2_robot_arm/ros2_ws/src/dofbot_moveit/include/dofbot_moveit
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/ros2_robot_arm/ros2_ws/build/dofbot_moveit
+[ 50%] [32mBuilding CXX object CMakeFiles/dofbot_server.dir/src/dofbot_server.cpp.o[0m
+[100%] [32m[1mLinking CXX executable dofbot_server[0m
+[100%] Built target dofbot_server
+-- Install configuration: ""
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/lib/dofbot_moveit/dofbot_server
+-- Set runtime path of "/root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/lib/dofbot_moveit/dofbot_server" to ""
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/launch
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/launch/kinematic_server.launch.py
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/launch/dofbot_moveit.launch.py
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/config
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/config/server_param.yaml
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/ament_index/resource_index/package_run_dependencies/dofbot_moveit
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/ament_index/resource_index/parent_prefix_path/dofbot_moveit
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/environment/ament_prefix_path.sh
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/environment/ament_prefix_path.dsv
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/environment/path.sh
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/environment/path.dsv
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/local_setup.bash
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/local_setup.sh
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/local_setup.zsh
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/local_setup.dsv
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/package.dsv
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/ament_index/resource_index/packages/dofbot_moveit
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/cmake/dofbot_moveitConfig.cmake
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/cmake/dofbot_moveitConfig-version.cmake
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/package.xml
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/launch
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/launch/kinematic_server.launch.py
+-- Up-to-date: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/launch/dofbot_moveit.launch.py
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/rviz
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/rviz/dofbot.rviz
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/rviz/urdf.rviz
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/urdf
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/urdf/dofbot.urdf
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/meshes
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/meshes/link4.STL
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/meshes/link1.STL
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/meshes/link2.STL
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/meshes/base_link.STL
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/meshes/link5.STL
+-- Installing: /root/ros2_robot_arm/ros2_ws/install/dofbot_moveit/share/dofbot_moveit/meshes/link3.STL
